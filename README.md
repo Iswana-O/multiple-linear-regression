@@ -15,6 +15,7 @@
 ---------------------
                 
 <img src="[Images/imagereader.jpg>
+![](Images/image%20reader.jpg)
 ## Introduction
 
 Haven-Kings Property Management, overseeing a vast portfolio of houses in the King County area, faces a dynamic and competitive real estate market. It's undeniable that Seattle and, by extension, King County stand as prime locations for acquiring and overseeing rental assets. Savvy investors understand that while a single property in this thriving market is beneficial, expanding one's real estate holdings is the key to amplifying profits and securing long-term financial stability.
