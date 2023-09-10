@@ -107,7 +107,7 @@ Next, let's explore the relationship between the house price and some potential 
 
 We'll use boxplots to visualize these relationships.
 
-![](/Images/Relationship%20between%20House%20Price%220and%20Key%20Features.png)
+![](/Images/Relationship%20between%20House%20Price%20and%20Key%20Features.png)
 
 Here's a summary of the visualizations:
 
