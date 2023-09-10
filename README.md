@@ -95,7 +95,7 @@ We'll start by:
 3. Analyzing the distribution of key features such as **bedrooms**, **bathrooms**, **sqft_living**, and **grade**.
 
 The distribution of house prices is right-skewed, meaning that there are a few houses with extremely high prices compared to the majority. Most of the houses are priced in the lower to mid-range, with a peak around 300,000  to  500,000 dollars($).
-
+![](/Images/Distribution%20of%20House%20Prices.png)
 Next, let's explore the relationship between the house price and some potential predictor variables. We'll start by examining how the price varies with:
 
 1. Number of bedrooms
@@ -104,7 +104,7 @@ Next, let's explore the relationship between the house price and some potential 
 4. House grade
 
 We'll use boxplots to visualize these relationships.
-
+![](/Images/Relationship%between%House%Price%and%Key%Features.png)
 Here's a summary of the visualizations:
 
 1. **Price vs. Bedrooms**:
@@ -122,7 +122,7 @@ Here's a summary of the visualizations:
 From the visualizations, it's evident that features like the number of bedrooms, bathrooms, living space, and grade have an influence on house prices.
 
 As expected there are some multicollinearity issues which we need to address.
-
+![](/Images/Correlation%Heatmap.png.png)
 We note that `sqft_above` and `sqft_living` are highly positively correlated, which is expected as `sqft_above` is the square footage of the house apart from basement (and we saw earlier that most houses did not have a basement). We will choose to keep `sqft_living` as it encompasses more information and drop the `sqt_above` feature. We also see that `sqft_living15` is moderately highly correlated with `sqft_living` and so we will drop this feature too.
 
 We also note that `sqft_lot` and `sqft_lot15` are highly positively correlated and we will choose to keep `sqft_lot` as it relates directly to the house as opposed to its neighbours (and so potentially easier to obtain data for and generalise.)
