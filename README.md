@@ -14,7 +14,7 @@
    
 ---------------------
                 
-<img src="[Images/image%20reader.jpg>
+![](/Images/imagereader.jpg)
 
 ## Introduction
 
