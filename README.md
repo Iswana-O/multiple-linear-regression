@@ -132,4 +132,86 @@ We note that `sqft_above` and `sqft_living` are highly positively correlated, wh
 
 We also note that `sqft_lot` and `sqft_lot15` are highly positively correlated and we will choose to keep `sqft_lot` as it relates directly to the house as opposed to its neighbours (and so potentially easier to obtain data for and generalise.)
 
-```
+### Modeling
+
+#### Perform regression analyses: simple, multiple, and polynomial.
+## Simple Regression
+
+### Price vs. sqft_living
+
+`sqft_living` is selected as the baseline predictor because it had the highest correlation with the target variable (price) with a pearson correlation of 0.71. To build the base model we shall start by visualizing the relationship between `sqft_living` and `price` . 
+
+## Building the base model (OLS) 
+
+### Applying Box-Cox Transformation to address heteroscadasticity
+
+### MULTIPLE LINEAR REGRESSION
+
+
+From our exploration some of the key predictors identified are bedrooms, bathrooms, sqft_living, and grade .
+We decided to use sqft_living for our modelling while excluding bedrooms and bathrooms
+
+**Rationale for Exclusion:**
+
+bedrooms and bathrooms were found to be highly correlated with sqft_living. Including predictors that are highly correlated can lead to multicollinearity, which can destabilize regression estimates Therefore, to avoid this issue, we have  decided to exclude bedrooms and bathrooms since sqft_living  captures the information they provide. We were able to verify these assumptions and decisions with data visualization and correlation matrices during the data exploration stage. 
+correlation between sqft_living and bedrooms is 0.57 and sqft_living and bathrooms is 0.75
+
+
+**Selected Predictors:**
+1. **View:**
+Rationale: The view from a property can significantly influence its perceived value. A good view can add aesthetic value to the property, making it more desirable to potential buyers.
+2. **Grade:**
+Rationale: The grade of a house represents its quality and can be a strong indicator of its overall value. A higher grade often means better construction quality, use of superior materials, and adherence to modern design principles. 
+3. **Condition:**
+Rationale: The overall condition of a house directly affects its marketability. Houses in better condition are likely to sell faster and at higher prices. 
+4. **Age of House:**
+Rationale: The age of a house can influence its value in various ways. Older houses might have architectural significance or charm, but they might also have outdated systems or require more maintenance. Conversely, newer houses might have modern amenities but lack the character of older homes. The age can give potential buyers an idea of the house's history and the potential costs associated with its upkeep.
+
+## Model 2
+
+We have expanded the base model to include more predictors, specifically property grade, condition, and the square footage of living space.
+
+# Model 3: Includes age of house
+
+we've converted the date column into date time format and extracted the year the house was sold. we've also calculated the years since renovation. This is valuable as properties that were recently renovated might have a different price dynamics compared to those that haven't been updated in a long time.
+
+ ## Model 4: Includes years between renovation and sale (assumption is that houses with zero in the yr_renovation column had not be renovated at the time of sale)
+ 
+ the Model introduces the feature Years_Between_Renovation_and_Sale, which captures the time since a house's last renovation (or since it was built if it hasn't been renovated).
+ 
+ The newly added columns, year_sold and Years_Between_Renovation_and_Sale, can offer additional insights. The time since the last renovation can be a significant factor in house pricing. Homes that were recently renovated might fetch higher prices due to updated features, modern design, or improved functionality.
+ 
+### Years_Between_Renovation_and_Sale is calculated by taking the year in the date column (year of sale) - renovation year
+
+## Model 5: Includes view(encoded)
+
+Model 5 incorporates both the floors and view variables
+
+
+### Recommendations for Haven-Kings Property Management:
+
+**Prioritize Living Space:** Given the high correlation between sqft_living and the house price, prioritize properties with larger living spaces when considering acquisitions or pricing.
+
+**Consider Property Quality and Condition:**  Model 2 emphasizes property grade and condition as crucial determinants of price. Ensure that properties under management are well-maintained to command higher rental or sale prices.
+
+**Factor in Age:** The age of a house can significantly impact its value. Older houses might carry historical or architectural significance, while newer ones might boast modern amenities. Understand the pros and cons associated with a property's age when setting prices.
+
+**Renovation Impact:** Model 4 focuses on the years since renovation. Properties that have been recently renovated might fetch higher prices. Consider investing in renovations for older properties to increase their market value.
+
+**Views Matter:** The view from a property can significantly influence its perceived value. Properties with better views can command higher prices. Ensure this factor is appropriately considered in pricing strategies.
+
+**Dynamic Pricing Strategy:** Consider developing a dynamic pricing strategy that takes into account various property features and market conditions. Use insights from all models to adjust rental rates or sale prices to maximize returns while staying competitive.
+
+### Recommendations for Data Gurus group 5
+
+Since we shall continue working Haven-Kings Property Management as our client and work on developing the models further as well as do machine learning. we need to check on below items :
+
+**Multicollinearity:** Be wary of multicollinearity, especially with correlated predictors like bedrooms, bathrooms, and sqft_living. While it's essential to capture as much variance as possible, adding correlated predictors can destabilize regression estimates.
+
+
+**Iterative Model Refinement:** Continuously refine and evaluate models based on new data and feedback. While these models provide valuable insights, the real estate market is dynamic, and models should adapt to changing conditions.
+
+
+In summary, each model provides unique insights that can guide Haven-Kings Property Management in refining their pricing strategies. By considering the predictors highlighted in these models and being aware of potential pitfalls like multicollinearity, Haven-Kings can make more informed decisions and optimize their returns in the King County real estate market.
+
+
